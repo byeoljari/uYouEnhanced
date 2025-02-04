@@ -97,6 +97,8 @@ jobs:
           cd sdks
           git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
           git checkout
+          # Create the directory if it doesn't exist
+          mkdir -p $THEOS/sdks  # Create the directory
           mv *.sdk $THEOS/sdks
         env:
           THEOS: ${{ github.workspace }}/theos
